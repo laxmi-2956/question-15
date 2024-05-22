@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Headline</title>
+<style>
+    /* Styles for the banner section */
+    .banner {
+        background-color: #333;
+        color: #fff;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    /* Styles for the headline */
+    .headline {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="banner">
+    <div class="headline">This is an animated headline</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        // Define an array of headlines
+        var headlines = ["This is an animated headline", "Welcome to our website", "Check out our latest offers"];
+
+        // Function to animate the headlines
+        function animateHeadline() {
+            var currentIndex = 0;
+            setInterval(function() {
+                $('.headline').fadeOut(400, function() {
+                    $(this).text(headlines[currentIndex]);
+                    $(this).fadeIn(400);
+                });
+                currentIndex = (currentIndex + 1) % headlines.length;
+            }, 3000); // Change headline every 3 seconds
+        }
+
+        // Call the function to start the animation
+        animateHeadline();
+    });
+</script>
+
+</body>
+</html>
